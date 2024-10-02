@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oops!!! Login Failed</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Style for the background image */
+      .bg-image {
+        /* Background image set to cover the entire element area, centered and not repeated */
+        background: url("images/failed.jpg") no-repeat center center / cover;
+        min-height: 100vh;
+      }
+
+      /* Style for the Overlay */
+      .overlay {
+        /* Semi-transparent black overlay to enhance text readability */
+        background: rgba(0, 0, 0, 0.5);
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Full screen container with background image -->
+    <div class="container-fluid bg-image">
+      <!-- Flexbox container to center content vertically and horizontally -->
+      <div class="d-flex vh-100 align-items-center justify-content-center">
+        <!-- Text content with padding and an overlay style -->
+        <div class="text-center text-white p-4 overlay">
+          <!-- Large header indicating a login failure -->
+          <h1 class="display-4">Oops!! Login Failed</h1>
+          <p class="lead">Your username and/or password was incorrect.</p>
+          <p class="lead">Please try again...</p>
+          <p>
+            <br />
+            <!-- Link to return to the login page -->
+            <a href="/" class="btn btn-primary mt-4">Go back to Login Page</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"
+></script>

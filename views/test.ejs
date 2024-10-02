@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= myMessage %></title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <!-- Dark themed Navbar that stays at the top when scrolling -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+      <!-- Fills the width of the screen -->
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">Luxe Glamping</a>
+        <!-- Hamburger menus for smaller screens -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <!-- Icon for the hamnburger menu -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapsible content of the navbar which includes navigation links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- Active link for the current page -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home"
+                >Home</a
+              >
+            </li>
+            <!-- Link to checkoutpge -->
+            <li class="nav-item">
+              <a class="nav-link" href="checkout.html">Checkout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Container for the Product Page -->
+    <!-- Main container with 5 margin top to provide space from the above content -->
+    <div class="container mt-5">
+      <!-- Centre the card horizontally -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <!-- Product title dynamically inserted -->
+              <h1 class="card-title text-center" id="product">
+                <%= myMessage %>
+              </h1>
+              <!-- Product description dynamically inserted using muted text -->
+              <h4 class="card-subtitle text-center text-muted mb-3">
+                <br />
+                <%= description %>
+              </h4>
+              <!-- Product proce dynamically inserted and usign success text -->
+              <h2 class="text-center text-success">
+                €<span id="price"><%= myPrice %></span>
+              </h2>
+              <!-- Centered product image with dynamic source path and a max width -->
+              <div class="text-center">
+                <img
+                  src="images/<%= myImages %>"
+                  alt="Product Image"
+                  class="img-fluid card-img"
+                  style="max-width: 500px"
+                />
+              </div>
+              <br />
+              <!-- Quantity selection dropdown -->
+              <div class="text-center mt-4">
+                <label for="quantity" class="form-label">Quantity</label>
+                <select
+                  id="quantity"
+                  name="quantity"
+                  class="form-select w-auto mx-auto"
+                >
+                  <option value="0">0</option>
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+              </div>
+              <br />
+              <!-- Add to cart button -->
+              <div class="text-center mt-4">
+                <button
+                  onclick="addToCart()"
+                  class="btn btn-primary btn-lg btn-block"
+                >
+                  Add to Cart
+                </button>
+              </div>
+              <br />
+              <!-- Link to return to the home page -->
+              <div class="text-center mt-3">
+                <a href="home" class="btn btn-link">Back to Home Page</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"
+></script>
+<script>
+  // Adds product details to LocalStorage
+  function addToCart() {
+    // Retrieve the product name, quantity and price from the HTML
+    let product = document.getElementById("product").innerHTML;
+    let quantity = document.getElementById("quantity").value;
+    let price = document.getElementById("price").innerHTML.trim();
+
+    // Create an obkect to the prce and quantity of the product
+    let quan_price = { p: price, quan: quantity };
+    // Store the product in local storage
+    localStorage.setItem(product, JSON.stringify(quan_price));
+  }
+</script>
